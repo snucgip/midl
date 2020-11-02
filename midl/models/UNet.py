@@ -27,6 +27,8 @@ class UNet(nn.Module):
             out_shapes = [64, 128, 256, 512, 1024]
         elif dim == 3:
             out_shapes = [16, 32, 64, 128, 256]
+        else:
+            raise ValueError()
 
         self.in_channels = in_channels
         self.n_clasees = n_classes
@@ -65,5 +67,5 @@ class UNet(nn.Module):
 
         return out
 
-    def calc_loss(self):
+    def calc_loss(self, x):
         pass
