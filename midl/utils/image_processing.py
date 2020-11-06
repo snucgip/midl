@@ -12,10 +12,12 @@ def parse_properties_from_path(path):
     base_name = os.path.splitext(os.path.basename(path))[0]
     # parse properties
     property_array = re.split('-|_', base_name)
+    dim = re.split('x',re.search('[0-9]+[x][0-9]+[x][0-9]+',base_name).group(0))
+    dim = dim[::-1]
     properties = {
         'name' : property_array[0],
         'number' : property_array[1],
-        'dimension' : re.split('x',re.search('[0-9]+[x][0-9]+[x][0-9]+',base_name).group(0)),
+        'dimension' : dim,
         'data_type' : property_array[-1] }
     return properties
 

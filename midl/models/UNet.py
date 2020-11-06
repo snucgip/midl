@@ -26,7 +26,7 @@ class UNet(nn.Module):
         if dim == 2:
             out_shapes = [64, 128, 256, 512, 1024]
         elif dim == 3:
-            out_shapes = [16, 32, 64, 128, 256]
+            out_shapes = [32, 64, 128, 256, 512]
         else:
             raise ValueError()
 

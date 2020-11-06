@@ -20,7 +20,7 @@ class BinaryDiceLoss(nn.Module):
         target = target.contiguous().view(target.shape[0], -1)
 
         numerator = 2 * torch.sum(torch.mul(predict, target), dim=1) + self.smooth
-        denominator = torch.sum(torch.add(predict, target), dim=1) + self.smooth
+        denominator = torch.sum(torch.square(predict), dim=1) + torch.sum(torch.square(target), dim=1) + self.smooth
 
         loss = 1 - numerator / denominator
 
