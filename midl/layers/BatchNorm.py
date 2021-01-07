@@ -6,7 +6,7 @@ Version     : 0.1
 """
 
 import torch.nn as nn
-from .Conv import Conv
+
 
 class BN(nn.Module):
     def __init__(

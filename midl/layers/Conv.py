@@ -6,6 +6,8 @@ Version     : 0.1
 """
 
 import torch.nn as nn
+import torch.nn.init as init
+
 
 class Conv(nn.Module):
     def __init__(
@@ -70,6 +72,11 @@ class Conv(nn.Module):
             )
         else:
             raise ValueError("Only 2 or 3 is supported for 'dim' in {}".format(self.__class__.__name__))
+
+        # Init weight
+        init.kaiming_normal_(self.conv.weight)
+        if bias is True:
+            init.constant_(self.conv.bias, 0)
 
     def forward(self, x):
         return self.conv(x)
@@ -138,6 +145,11 @@ class ConvTranspose(nn.Module):
             )
         else:
             raise ValueError("Only 2 or 3 is supported for 'dim' in {}".format(self.__class__.__name__))
+
+        # Init weight
+        init.kaiming_normal_(self.conv.weight)
+        if bias is True:
+            init.constant_(self.conv.bias, 0)
 
     def forward(self, x):
         return self.conv(x)

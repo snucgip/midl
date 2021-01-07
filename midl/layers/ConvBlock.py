@@ -9,6 +9,7 @@ import torch.nn as nn
 from .Conv import Conv
 from .BatchNorm import BN
 
+
 class ConvBlock(nn.Module):
     def __init__(
             self,
@@ -38,7 +39,7 @@ class ConvBlock(nn.Module):
             padding_mode=padding_mode
         )
         self.bn = BN(dim=dim, channels=out_channels)
-        self.act = nn.ReLU(inplace=True)
+        self.act = nn.PReLU()
 
     def forward(self, x):
         x = self.conv(x)
