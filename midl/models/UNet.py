@@ -13,6 +13,7 @@ from midl.layers.ConvBlock import ConvBlock
 from midl.layers.UNet.DownTransition import DownTransition
 from midl.layers.UNet.UpTransition import UpTransition
 
+
 class UNet(nn.Module):
     def __init__(
             self,

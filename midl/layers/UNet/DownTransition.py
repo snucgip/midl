@@ -10,6 +10,7 @@ import torch.nn as nn
 from ..ConvBlock import ConvBlock
 from ..Pool import Pool
 
+
 class DownTransition(nn.Module):
     def __init__(
             self,
